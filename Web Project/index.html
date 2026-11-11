@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DrukYul Art House</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVIGATION ================= -->
+
+    <header>
+
+        <div class="logo">
+
+            <div class="logo-symbol">✥</div>
+
+            <div>
+                <h2>DRUKYUL</h2>
+                <span>ART HOUSE</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#home" class="active">Home</a>
+
+            <a href="#gallery">Gallery</a>
+
+            <a href="#about">About</a>
+
+            <a href="#shop">Shop</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+
+        <div class="header-icons">
+
+            <button id="searchButton">⌕</button>
+
+            <button id="cartButton">
+                🛒 <span id="cartCount">0</span>
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="subtitle">
+                ART THAT CONNECTS
+            </p>
+
+            <h1>
+                HERITAGE &<br>
+                IMAGINATION
+            </h1>
+
+            <p class="hero-description">
+                Discover Bhutanese traditional
+                and contemporary art.
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="#gallery" class="btn primary-btn">
+                    EXPLORE GALLERY →
+                </a>
+
+                <a href="#shop" class="btn secondary-btn">
+                    SHOP ART 🛒
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img src="images/bhutan-dzong.jpg"
+                alt="Bhutanese Dzong">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= COLLECTION ================= -->
+
+    <section class="collection" id="gallery">
+
+        <div class="section-heading">
+
+            <span>◇</span>
+
+            <h2>
+                EXPLORE OUR COLLECTION
+            </h2>
+
+            <span>◇</span>
+
+        </div>
+
+
+        <div class="collection-grid">
+
+
+            <!-- Traditional -->
+
+            <div class="collection-card">
+
+                <img src="images/thangka.jpg"
+                    alt="Traditional Bhutanese Art">
+
+                <div class="collection-content">
+
+                    <h3>
+                        TRADITIONAL<br>
+                        ART
+                    </h3>
+
+                    <p>
+                        Timeless art,
+                        deep-rooted in our culture.
+                    </p>
+
+                    <button
+                        onclick="filterCategory('traditional')">
+
+                        Browse Collection →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Modern -->
+
+            <div class="collection-card">
+
+                <img src="images/modern.jpg"
+                    alt="Modern Bhutanese Art">
+
+                <div class="collection-content">
+
+                    <h3>
+                        MODERN<br>
+                        ART
+                    </h3>
+
+                    <p>
+                        Fresh perspectives,
+                        contemporary expressions.
+                    </p>
+
+                    <button
+                        onclick="filterCategory('modern')">
+
+                        Browse Collection →
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SHOP ================= -->
+
+    <section class="shop" id="shop">
+
+        <div class="section-heading">
+
+            <span>◇</span>
+
+            <h2>
+                FEATURED ARTWORKS
+            </h2>
+
+            <span>◇</span>
+
+        </div>
+
+
+        <!-- Search and Filter -->
+
+        <div class="shop-controls">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search artwork...">
+
+
+            <select id="categoryFilter">
+
+                <option value="all">
+                    All Artwork
+                </option>
+
+                <option value="traditional">
+                    Traditional Art
+                </option>
+
+                <option value="modern">
+                    Modern Art
+                </option>
+
+            </select>
+
+
+            <button
+                class="cart-top-button"
+                onclick="openCart()">
+
+                🛒 Cart
+                (<span id="cartNumber">0</span>)
+
+            </button>
+
+        </div>
+
+
+
+        <!-- Artwork Grid -->
+
+        <div class="art-grid" id="artGrid">
+
+
+            <!-- ART 1 -->
+
+            <div class="art-card"
+                data-category="traditional"
+                data-name="Chenrezig Thangka">
+
+                <div class="image-box">
+
+                    <img src="images/thangka.jpg"
+                        alt="Chenrezig Thangka">
+
+                    <button
+                        class="favorite"
+                        onclick="favoriteArtwork(this)">
+
+                        ♡
+
+                    </button>
+
+                </div>
+
+
+                <div class="art-info">
+
+                    <h3>
+                        Chenrezig Thangka
+                    </h3>
+
+                    <p class="art-category">
+                        Traditional
+                    </p>
+
+                    <h4>
+                        Nu. 8,500
+                    </h4>
+
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="viewArtwork(
+                            'Chenrezig Thangka',
+                            'Traditional',
+                            'Nu. 8,500',
+                            'images/thangka.jpg'
+                            )">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                            'Chenrezig Thangka',
+                            8500
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ART 2 -->
+
+            <div class="art-card"
+                data-category="traditional"
+                data-name="Dragon Motif">
+
+                <div class="image-box">
+
+                    <img src="images/dragon.jpg"
+                        alt="Dragon Motif">
+
+                    <button
+                        class="favorite"
+                        onclick="favoriteArtwork(this)">
+
+                        ♡
+
+                    </button>
+
+                </div>
+
+
+                <div class="art-info">
+
+                    <h3>
+                        Dragon Motif
+                    </h3>
+
+                    <p class="art-category">
+                        Traditional
+                    </p>
+
+                    <h4>
+                        Nu. 6,500
+                    </h4>
+
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="viewArtwork(
+                            'Dragon Motif',
+                            'Traditional',
+                            'Nu. 6,500',
+                            'images/dragon.jpg'
+                            )">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                            'Dragon Motif',
+                            6500
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ART 3 -->
+
+            <div class="art-card"
+                data-category="modern"
+                data-name="Mountain Dreams">
+
+                <div class="image-box">
+
+                    <img src="images/mountain.jpg"
+                        alt="Mountain Dreams">
+
+                    <button
+                        class="favorite"
+                        onclick="favoriteArtwork(this)">
+
+                        ♡
+
+                    </button>
+
+                </div>
+
+
+                <div class="art-info">
+
+                    <h3>
+                        Mountain Dreams
+                    </h3>
+
+                    <p class="art-category">
+                        Contemporary
+                    </p>
+
+                    <h4>
+                        Nu. 4,500
+                    </h4>
+
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="viewArtwork(
+                            'Mountain Dreams',
+                            'Contemporary',
+                            'Nu. 4,500',
+                            'images/mountain.jpg'
+                            )">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                            'Mountain Dreams',
+                            4500
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ART 4 -->
+
+            <div class="art-card"
+                data-category="modern"
+                data-name="Beyond the Hills">
+
+                <div class="image-box">
+
+                    <img src="images/modern.jpg"
+                        alt="Beyond the Hills">
+
+                    <button
+                        class="favorite"
+                        onclick="favoriteArtwork(this)">
+
+                        ♡
+
+                    </button>
+
+                </div>
+
+
+                <div class="art-info">
+
+                    <h3>
+                        Beyond the Hills
+                    </h3>
+
+                    <p class="art-category">
+                        Contemporary
+                    </p>
+
+                    <h4>
+                        Nu. 5,000
+                    </h4>
+
+
+                    <div class="card-buttons">
+
+                        <button
+                            class="view-btn"
+                            onclick="viewArtwork(
+                            'Beyond the Hills',
+                            'Contemporary',
+                            'Nu. 5,000',
+                            'images/modern.jpg'
+                            )">
+
+                            View
+
+                        </button>
+
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                            'Beyond the Hills',
+                            5000
+                            )">
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-text">
+
+            <h2>
+                WHERE TRADITION<br>
+                MEETS TOMORROW
+            </h2>
+
+            <div class="line"></div>
+
+            <p>
+
+                Traditional Bhutanese art meets
+                the creativity of today's artists.
+
+                Discover stories, culture and
+                imagination through every piece.
+
+            </p>
+
+            <button
+                class="learn-btn"
+                onclick="showAboutMessage()">
+
+                Learn More →
+
+            </button>
+
+        </div>
+
+
+        <div class="about-images">
+
+            <img src="images/dragon.jpg"
+                alt="Bhutanese Traditional Art">
+
+            <img src="images/modern.jpg"
+                alt="Modern Art">
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="section-heading">
+
+            <span>◇</span>
+
+            <h2>
+                CONTACT US
+            </h2>
+
+            <span>◇</span>
+
+        </div>
+
+
+        <form id="contactForm">
+
+            <input
+                type="text"
+                id="name"
+                placeholder="Your Name"
+                required>
+
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your Email"
+                required>
+
+
+            <textarea
+                id="message"
+                placeholder="Your Message"
+                rows="5"
+                required>
+            </textarea>
+
+
+            <button type="submit">
+
+                Send Message →
+
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-logo">
+
+                <div class="logo-symbol">
+                    ✥
+                </div>
+
+                <div>
+
+                    <h2>
+                        DRUKYUL
+                    </h2>
+
+                    <span>
+                        ART HOUSE
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    <i>
+                        Art for a culturally
+                        inspired tomorrow.
+                    </i>
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Follow Us
+                </h4>
+
+                <p class="social">
+                    Instagram &nbsp; Facebook &nbsp; YouTube
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Contact Us
+                </h4>
+
+                <p>
+                    info@drukyulart.com
+                </p>
+
+                <p>
+                    +975 2 123 456
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 DrukYul Art House.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= ARTWORK MODAL ================= -->
+
+    <div id="artModal" class="modal">
+
+        <div class="modal-content">
+
+            <button
+                class="close"
+                onclick="closeModal()">
+
+                ×
+
+            </button>
+
+
+            <img
+                id="modalImage"
+                src="images/traditional.jpg"
+                alt="Artwork">
+
+
+            <div class="modal-details">
+
+                <h2 id="modalTitle">
+                    Artwork
+                </h2>
+
+                <p id="modalCategory">
+                    Categobry
+                </p>
+
+                <h3 id="modalPrice">
+                    Price
+                </h3>
+
+                <button
+                    id="modalCartButton">
+
+                    🛒 Add to Cart
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= CART MODAL ================= -->
+
+    <div id="cartModal" class="modal">
+
+        <div class="cart-box">
+
+            <button
+                class="close"
+                onclick="closeCart()">
+
+                ×
+
+            </button>
+
+
+            <h2>
+                Your Shopping Cart 🛒
+            </h2>
+
+
+            <div id="cartItems">
+
+                <p>
+                    Your cart is empty.
+                </p>
+
+            </div>
+
+
+            <h3>
+
+                Total:
+                Nu.
+                <span id="cartTotal">
+                    0
+                </span>
+
+            </h3>
+
+
+            <button
+                class="checkout-btn"
+                onclick="checkout()">
+
+                Proceed to Checkout
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= NOTIFICATION ================= -->
+
+    <div id="notification">
+
+        Artwork added to cart ✓
+
+    </div>
+
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
